@@ -101,7 +101,7 @@
       </audio>
     </div>
 
-    <div class="card">
+   <div class="card">
       <div class="name jan">Jan</div>
       <audio controls>
         <source src="audio/person6.mp3" type="audio/mpeg">
@@ -118,5 +118,19 @@
     </div>
 
   </div>
+
+  <script>
+    const audios = document.querySelectorAll('audio');
+    audios.forEach(audio => {
+      audio.addEventListener('play', () => {
+        audios.forEach(otherAudio => {
+          if (otherAudio !== audio) {
+            otherAudio.pause();
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>
+
